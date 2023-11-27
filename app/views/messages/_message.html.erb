@@ -1,0 +1,13 @@
+# app/views/messages/_message.html.erb
+# Thanks to github.com/fanahova for this template!
+<div id="<%= dom_id(message) %>">
+  <% if message.user? %>
+    <div class="bg-primary rounded m-3 text-white p-3">
+      <%= message.content %>
+    </div>
+  <% else %>
+    <div class="bg-light rounded m-3 p-3">
+      <%= message.content %>
+    </div>
+  <% end %>
+</div>

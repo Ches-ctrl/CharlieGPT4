@@ -1,0 +1,22 @@
+<h1>Chats#show</h1>
+<p>Find me in app/views/chats/show.html.erb</p>
+
+<!-- app/views/chats/show.html.erb -->
+<div class="container-fluid d-flex justify-content-center">
+  <div class="mx-auto">
+
+    <div class="bg-white py-3">
+      <div class="container px-3">
+        <ul class="overflow-auto" style="max-height: 48vh;">
+          <%= turbo_stream_from "#{dom_id(@chat)}_messages" %>
+          <div id="<%= dom_id(@chat) %>_messages">
+            <%= render @chat.messages %>
+          </div>
+        </ul>
+
+        <%= render partial: "messages/form", locals: { chat: @chat } %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="mx-auto">
+  <div class="position-relative mx-auto bg-light vh-100">
+    <div class="position-absolute bottom-0 start-0 end-0 overflow-auto">
+      <% if @chat.present? %>
+        <div class="py-2">
+          <div class="p-2">
+            <ul class="overflow-auto" style="max-height: 72vh;" role="list">
+              <%= turbo_stream_from "#{dom_id(@chat)}_messages" %>
+              <div id="<%= dom_id(@chat) %>_messages">
+                <%= render @chat.messages %>
+              </div>
+            </ul>
+
+            <%= render partial: "messages/form", locals: { chat: @chat } %>
+          </div>
+        </div>
+      <% else %>
+        <%= render partial: "messages/form", locals: { chat: Chat.includes(:messages).where(user: current_user, messages: { id: nil }).first_or_create } %>
+      <% end %>
+    </div>
+  </div>
+</div>

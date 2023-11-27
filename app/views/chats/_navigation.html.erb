@@ -1,0 +1,15 @@
+<div class="d-flex flex-column vh-100">
+  <%= button_to "Start a new conversation to keep her awake...", chats_path, method: :post, class: "btn btn-info text-white py-2 px-4 rounded m-2" %>
+
+  <% @chats.each do |chat| %>
+    <%= link_to chat.messages[0]&.content&.truncate_words(16), chat_path(chat), class: "btn btn-primary text-white py-2 px-2 rounded mx-2 my-1" %>
+  <% end %>
+
+  <div class="position-absolute bottom-0 m-2">
+    <% if user_signed_in? %>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-dark text-white py-2 px-4 rounded" %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-dark text-white py-2 px-4 rounded" %>
+    <% end %>
+  </div>
+</div>

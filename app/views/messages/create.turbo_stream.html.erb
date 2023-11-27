@@ -1,0 +1,10 @@
+<h1>Messages#create</h1>
+<p>Find me in app/views/messages/create.html.erb</p>
+
+# app/views/messages/create.turbo_stream.erb
+<%= turbo_stream.append "#{dom_id(@message.chat)}_messages" do %>
+  <%= render "message", message: @message, scroll_to: true %>
+<% end %>
+<%= turbo_stream.replace "#{dom_id(@message.chat)}_message_form" do %>
+  <%= render "form", chat: @message.chat %>
+<% end %>
