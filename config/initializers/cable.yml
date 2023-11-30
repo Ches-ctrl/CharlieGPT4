@@ -1,0 +1,4 @@
+production:
+  adapter: redis
+  url: <%= ENV['STACKHERO_REDIS_URL_TLS'] %>
+  channel_prefix: granny_production
