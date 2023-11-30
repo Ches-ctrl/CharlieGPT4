@@ -1,15 +1,17 @@
 <%= turbo_frame_tag "#{dom_id(chat)}_message_form" do %>
-  <%= form_with(model: Message.new, url: [chat, chat.messages.new]) do |form| %>
-    <div class="my-3"> <!-- Adjusted the margin to use Bootstrap's spacing scale -->
+  <%= form_with(model: Message.new, url: [chat, chat.messages.new], class: "d-flex") do |form| %>
+
+    <div class="rounded flex-grow-1 my-3"> <!-- Adjusted the margin to use Bootstrap's spacing scale -->
       <%= form.text_area :content, rows: 4, class: "form-control shadow-sm", autofocus: true, "x-on:keydown.cmd.enter" => "$event.target.form.requestSubmit();" %>
       <!-- Removed specific Tailwind utility classes and replaced with Bootstrap's 'form-control' -->
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <!-- Used Bootstrap's grid system for alignment -->
-      <%= form.button type: :submit, class: "btn btn-primary btn-lg" do %> <!-- Bootstrap button classes -->
+      <%= form.button type: :submit, class: "btn btn-success" do %> <!-- Bootstrap button classes -->
         <i class="fas fa-paper-plane"></i> <!-- Assuming you're using FontAwesome for icons -->
         <span class="ms-2">Send</span> <!-- 'pl-2' is replaced with 'ms-2' for Bootstrap's margin start -->
       <% end %>
     </div>
+
   <% end %>
 <% end %>

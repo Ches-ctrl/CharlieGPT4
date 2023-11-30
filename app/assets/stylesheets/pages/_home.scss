@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+.home-element {
+  background-color: $quaternary-color;
+  padding: 1rem;
+  padding: 3rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.home-background {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: $tertiary-color;
+}
