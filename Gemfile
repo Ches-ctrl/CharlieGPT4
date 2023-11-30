@@ -55,6 +55,8 @@ gem "sidekiq"
 gem "sidekiq-failures"
 gem "ruby-openai"
 gem "faker"
+gem "ruby-prof"
+
 
 group :development, :test do
   gem "dotenv-rails"

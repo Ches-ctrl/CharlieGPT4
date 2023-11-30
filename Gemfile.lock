@@ -249,6 +249,7 @@ GEM
       event_stream_parser (>= 0.3.0, < 1.0.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
+    ruby-prof (1.6.3)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   rails (~> 7.1.2)
   redis (>= 4.0.1)
   ruby-openai
+  ruby-prof
   sassc-rails
   selenium-webdriver
   sidekiq
